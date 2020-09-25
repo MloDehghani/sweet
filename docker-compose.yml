@@ -1,0 +1,67 @@
+version: "3.8"
+
+services:
+  # PHP service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sweet_app
+    container_name: sweet-app
+    restart: "no"
+    working_dir: /var/www
+    volumes:
+      - ".:/var/www"
+    networks:
+      - sweet
+
+  # Nginx service
+  webserver:
+    image: "nginx:alpine"
+    container_name: sweet_web_server
+    restart: "no"
+    ports:
+      - "8080:80"
+      - "443:443"
+    volumes:
+      - ".:/var/www"
+      - ".docker/nginx/conf.d/:/etc/nginx/conf.d/"
+    networks:
+      - sweet
+
+  # Mysql service
+  db:
+    image: "mysql:5.7"
+    container_name: sweet_db
+    restart: "no"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "${DB_DATABASE}"
+      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+      MYSQL_PASSWORD: "${DB_PASSWORD}"
+      MYSQL_USER: "${DB_USERNAME}"
+    volumes:
+      - "db:/var/lib/mysql/"
+    networks:
+      - sweet
+
+  # Composer service
+  composer:
+    image: "composer:latest"
+    container_name: sweet_composer
+    volumes:
+      - ".:/app"
+    working_dir: /app
+    depends_on:
+      - app
+    networks:
+      - sweet
+
+networks:
+  sweet:
+    driver: bridge
+
+volumes:
+  db:
+    driver: local
