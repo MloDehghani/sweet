@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('owner_id');
             $table->string('name');
+            $table->string('image')->nullable()->default('sweet.png');
             $table->timestamps();
 
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');

@@ -46,6 +46,26 @@
 
                                     <div class="border-t border-gray-100"></div>
 
+                                    <!-- Category Management -->
+                                    <template>
+                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                            Manage Category
+                                        </div>
+
+                                        <!-- Team Settings -->
+                                        <jet-dropdown-link href="/categories/">
+                                           Categoyies
+                                        </jet-dropdown-link>
+                                        
+
+                                        <jet-dropdown-link href="/categories/create" v-if="$page.jetstream.canCreateTeams">
+                                            Create New Category
+                                        </jet-dropdown-link>
+
+                                        <div class="border-t border-gray-100"></div>
+
+                                    </template>
+
                                     <!-- Team Management -->
                                     <template v-if="$page.jetstream.hasTeamFeatures">
                                         <div class="block px-4 py-2 text-xs text-gray-400">

@@ -16,3 +16,9 @@ mix.js('resources/js/app.js', 'public/js')
         require('postcss-import'),
         require('tailwindcss'),
     ]);
+
+mix.js('resources/js/front.js', 'public/js')
+    .postCss('resources/css/front.css', 'public/css', [
+        require('postcss-import'),
+        require('tailwindcss'),
+    ]);

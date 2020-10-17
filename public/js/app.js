@@ -3035,6 +3035,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -25948,6 +25968,47 @@ var render = function() {
                                 staticClass: "border-t border-gray-100"
                               }),
                               _vm._v(" "),
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "block px-4 py-2 text-xs text-gray-400"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                        Manage Category\n                                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "jet-dropdown-link",
+                                  { attrs: { href: "/categories/" } },
+                                  [
+                                    _vm._v(
+                                      "\n                                       Categoyies\n                                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm.$page.jetstream.canCreateTeams
+                                  ? _c(
+                                      "jet-dropdown-link",
+                                      { attrs: { href: "/categories/create" } },
+                                      [
+                                        _vm._v(
+                                          "\n                                        Create New Category\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", {
+                                  staticClass: "border-t border-gray-100"
+                                })
+                              ],
+                              _vm._v(" "),
                               _vm.$page.jetstream.hasTeamFeatures
                                 ? [
                                     _c(
@@ -27179,12 +27240,9 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
         _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
-          _c(
-            "div",
-            { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
-            [_c("welcome")],
-            1
-          )
+          _c("div", {
+            staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg"
+          })
         ])
       ])
     ]
@@ -41939,6 +41997,17 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/css/front.css":
+/*!*********************************!*\
+  !*** ./resources/css/front.css ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/js/Jetstream/ActionMessage.vue":
 /*!**************************************************!*\
   !*** ./resources/js/Jetstream/ActionMessage.vue ***!
@@ -44634,14 +44703,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/css/app.css ***!
-  \***********************************************************/
+/*!*************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/css/app.css ./resources/css/front.css ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/amir/Desktop/workspace/projects/sweet/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/amir/Desktop/workspace/projects/sweet/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! /home/amir/Desktop/workspace/projects/sweet/resources/css/app.css */"./resources/css/app.css");
+module.exports = __webpack_require__(/*! /home/amir/Desktop/workspace/projects/sweet/resources/css/front.css */"./resources/css/front.css");
 
 
 /***/ })

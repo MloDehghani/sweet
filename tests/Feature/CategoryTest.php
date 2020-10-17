@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Database\Eloquent\Collection;
 use Tests\TestCase;
 use App\Models\Category;
 use App\Models\User;
@@ -73,10 +74,25 @@ class CategoryTest extends TestCase
     }
 
     /** @test */
-
     public function it_belongs_to_owner(){
         $category = Category::factory()->create();
 
         $this->assertInstanceOf('App\Models\User', $category->owner);
+    }
+
+    /** @test */
+    public function it_has_many_card() {
+        $this->withOutExceptionHandling();
+        $category = Category::factory()->create();
+
+        $this->assertInstanceOf(Collection :: class, $category->cards);
+    }
+
+    /** @test */
+    public function can_start_a_poling() {
+        $this->withOutExceptionHandling();
+        $category = Category::factory()->create();
+
+        $this->get('/poling/'. $category->id)->assertStatus(200);
     }
 }

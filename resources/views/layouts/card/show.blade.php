@@ -14,6 +14,7 @@
       <div class="">
         <img class="rounded-full border-2 bg-cover h-56 w-56 mt-10 border-teal-700" src="{{asset('storage/' . $card->image)}}" alt="">
         <h1 class="text-teal-700  text-center font-bold text-4xl my-6">{{$card->name}}</h1>
+        <p>{{$card->score}}</p>
       </div>
     </div>
   </div>
