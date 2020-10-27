@@ -11,7 +11,7 @@ class CardController extends Controller
 
     public function index() {
         $cards = Card::orderBy('score', 'desc')->get();
-        return view('layouts.card.index',['items'=>$cards]);
+        return $cards;
     }
 
     public function show(Card $card) {
@@ -25,15 +25,13 @@ class CardController extends Controller
         return view('layouts.card.create',['categories' => $categories]);
     }
 
-    public function updateScore(Card $card, Request $request) {
-        // $card = Card::find($card->id);
-        // $score = $request->validate(['score' => 'required']);    
+    public function updateScore(Card $card, Request $request) { 
         $card->update($request->all());
         return $card;
     }
 
     public function store(Request $request) {
-        $attributes = $request->validate(['name' => 'required','category_id' => 'required', 'score' =>'', 'image' =>'file|image|mimes:png,jpg|max:5000' ,'description' =>'string']);
+        $attributes = $request->validate(['name' => 'required','category_id' => 'required', 'score' =>'', 'image' =>'file|image|mimes:png,jpg,jpeg|max:5000' ,'description' =>'string|max:10']);
 
         $card =Card::create($attributes);
 
@@ -42,7 +40,13 @@ class CardController extends Controller
                 ['image' => $request->image->store('uploads','public')]
             );    
         }
-        return redirect('/cards');
+        return redirect('/');
+    }
+
+    public function delete(Card $post) {
+        $post = Card::find($post->id);
+        $post->delete();
+        return redirect('/');
     }
 
 

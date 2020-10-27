@@ -10,11 +10,15 @@ use App\Models\Card;
 
 class CategoryController extends Controller
 {
+    public function home() {
+        return view('Home');
+    }
+
     public function index(){
         $categories = Category::all();
 
-        // dd($arrays);
-        return view('layouts.category.index', ['items' => $categories]);
+        return $categories;
+        // return view('layouts.category.index', ['items' => $categories]);
     }
 
     public function show(Category $category) {
@@ -33,7 +37,7 @@ class CategoryController extends Controller
                 ['image' => $request->image->store('uploads','public')]
             );    
         }        
-        return redirect('/categories');
+        return redirect('/');
     }
 
     public function create() {
@@ -45,7 +49,7 @@ class CategoryController extends Controller
 
         $cards = Card::inRandomOrder()->where('category_id',$category->id)->get();
         if(count($cards) < 2) {
-            return 'برو باباتو بیار';
+            return 'تعداد کارت ها کافی نیست';
         }
 
         if(count($cards) <= 20) {
@@ -61,4 +65,6 @@ class CategoryController extends Controller
     private function cards(Category $category,$number) {
          return Card::inRandomOrder()->where('category_id',$category->id)->take($number)->get();
     }
+
+
 }

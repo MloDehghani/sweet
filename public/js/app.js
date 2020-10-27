@@ -3452,6 +3452,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -27240,9 +27252,52 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
         _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
-          _c("div", {
-            staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg"
-          })
+          _c(
+            "div",
+            { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
+            [
+              _c("div", { staticClass: "flex justify-center flex-wrap" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "bg-orange-500 text-white p-20 m-5 rounded-lg",
+                    attrs: { href: "/" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        صفحه اصلی\n                    "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "bg-green-500 text-white p-20 m-5 rounded-lg",
+                    attrs: { href: "/categories/create" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                      افزودن دسته بندی\n                    "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "bg-teal-500 text-white p-20 m-5 rounded-lg",
+                    attrs: { href: "/cards/create" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                      افزودن کارت\n                    "
+                    )
+                  ]
+                )
+              ])
+            ]
+          )
         ])
       ])
     ]

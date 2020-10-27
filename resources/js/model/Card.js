@@ -8,6 +8,10 @@ class Card {
   updateScore (card) {
     return api.post('/cards/' + card.id + '/updatescore',card).then(response => response);
   }
+
+  getCards() {
+    return api.get('/api/cards').then(response => response);
+  }
 }
 
 export default Card;

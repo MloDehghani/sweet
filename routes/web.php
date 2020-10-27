@@ -14,9 +14,7 @@ use App\Http\Controllers\CardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[CategoryController::class ,'home']);
 
 Route::post('/categories/',[CategoryController::class ,'store'])->middleware('auth');
 Route::get('/categories/create',[CategoryController::class ,'create'])->middleware('auth');
@@ -31,6 +29,7 @@ Route::post('/cards/{card}/updatescore/',[CardController::class , 'updateScore']
 Route::get('/cards/create',[CardController::class , 'create'])->middleware('auth');
 Route::get('/cards/',[CardController::class , 'index']);
 Route::get('/cards/{card}',[CardController::class , 'show']);
+Route::delete('/cards/{post}',[CardController::class , 'delete'])->name('cards.delete')->middleware('auth');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
